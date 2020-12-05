@@ -1,0 +1,111 @@
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #000000;
+    background-image: linear-gradient(0deg, #000000 0%, #2c3e50 74%);
+    perspective: 1000px;
+}
+
+.login__container {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login__card {
+    min-height: 90vh;
+    width: 15rem;
+    box-shadow: 0px 20px 25px rgba(37, 201, 247, 0.2),
+        0px 0px 50px rgb(0, 86, 206);
+    border-radius: 30px;
+    padding: 0rem 5rem;
+}
+
+.login__area {
+    min-height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__circle {
+    width: 12rem;
+    height: 12rem;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.login__logo {
+    width: 10rem;
+    z-index: 2;
+    transition: all 0.75s ease-out;
+}
+
+.login__text {
+    position: relative;
+}
+
+.login__hello {
+    font-size: 3.5rem;
+    color: var(--twitter-background);
+}
+
+.login__Ano__Container {
+    width: fit-content;
+    padding-right: 50px;
+    font-size: 1.32rem;
+}
+
+.login__anonymous {
+    -webkit-text-stroke: 0vw #000;
+    color: #fff;
+}
+
+.login__anonymous::before {
+    content: 'Anonymous';
+    position: absolute;
+    left: 0;
+    width: 0;
+    color: var(--twitter);
+    -webkit-text-stroke: 0vw #000;
+    border-right: 2px solid var(--twitter);
+    overflow: hidden;
+    animation: animate 3.5s linear infinite;
+}
+
+@keyframes animate {
+
+    0%,
+    10%,
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+.login__please {
+    font-size: 1.3rem;
+    color: var(--twitter-background);
+}
+
+.signIn__Button {
+    margin-top: 50px;
+}
+
+.signIn__logo {
+    width: 18px;
+    height: 18px;
+    padding-right: 10px;
+}

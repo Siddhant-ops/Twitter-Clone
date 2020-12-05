@@ -48,7 +48,7 @@
 }
 
 .widgets__widgetContainer::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
     background-color: var(--twitter-background);
 }
 

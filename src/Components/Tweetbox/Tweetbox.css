@@ -26,6 +26,48 @@
     padding: 20px;
 }
 
+.tweetbox__imgBox {
+    width: fit-content;
+    padding: 20px;
+}
+
+.tweetbox__imgBox>img {
+    width: fit-content;
+    max-width: 650px;
+    border-radius: 20px;
+}
+
+.tweetbox__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    margin: 0px 10px;
+}
+
+.yes__display {
+    display: block;
+}
+
+.no__display {
+    display: none;
+}
+
+#fileuploadimg {
+    display: none;
+}
+
+.tweetbox__filesIcons {
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    width: 175px;
+}
+
+.tweetbox__fileIconOutline {
+    border-radius: 15px !important;
+}
+
 .tweetbox__tweetButton {
     background-color: var(--twitter) !important;
     border: none !important;
@@ -35,6 +77,5 @@
     border-radius: 30px !important;
     width: 80px !important;
     height: 40px !important;
-    margin-top: 20px !important;
     margin-left: auto !important;
 }
