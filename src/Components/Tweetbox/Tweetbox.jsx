@@ -44,43 +44,81 @@ const Tweetbox = () => {
 
   // Image Preview
 
-  const [image, setImage] = useState("");
-  const imageRef = useRef(null);
-  var imageFile;
-  function useDisplayImage() {
-    const [result, setResult] = useState("");
-    function uploader(e) {
-      imageFile = e.target.files[0];
+  // const [image, setImage] = useState("");
+  // const imageRef = useRef(null);
+  // var imageFile;
+  // const [result, setResult] = useState(true);
+  // function useDisplayImage() {
+  //   function uploader(e) {
+  //     imageFile = e.target.files[0];
 
-      if (imageFile) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          setResult(e.target.result);
-        };
+  //     if (imageFile) {
+  //       const reader = new FileReader();
+  //       reader.onload = (e) => {
+  //         setShow(e.target.result);
+  //       };
 
-        reader.readAsDataURL(imageFile);
-      }
+  //       reader.readAsDataURL(imageFile);
+  //     }
+  //   }
+
+  //   return { show, uploader };
+  // }
+
+  // const { show, uploader } = useDisplayImage();
+
+  // const handleImageChange = (e) => {
+  //   setResult(true);
+  //   console.log(result);
+  //   setImage(e.target.files[0]);
+  //   uploader(e);
+  // };
+
+  const [file, setFile] = useState(null);
+  const [img, setImg] = useState(null);
+  const [imgDetails, setImgDetails] = useState(null);
+
+  const readingImage = (e) => {
+    setImgDetails(e.target.files[0]);
+    setFile(URL.createObjectURL(e.target.files[0]));
+    var imgfile = e.target.files[0];
+
+    const reader = new FileReader();
+    if (
+      imgfile &&
+      (imgfile.type.match("image/jpeg") ||
+        imgfile.type.match("image/png") ||
+        imgfile.type.match("image/webp") ||
+        imgfile.type.match("image/gif"))
+    ) {
+      reader.readAsDataURL(imgfile);
+    } else {
+      console.log("in else");
     }
+    reader.onloadend = (e) => {
+      setImg(reader.result);
+    };
+  };
 
-    return { result, uploader };
+  function handleImageChange(e) {
+    readingImage(e);
   }
 
-  const { result, uploader } = useDisplayImage();
-
-  const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
-    uploader(e);
-  };
+  console.log(imgDetails);
+  console.log(imgDetails);
 
   // SEND TWEET
   const sendTweet = async (e) => {
     e.preventDefault();
 
-    if (image) {
+    if (imgDetails) {
       var metadata = {
         contentType:
           "image/" +
-          image.name.substring(image.name.indexOf(".") + 1, image.name.length),
+          imgDetails.name.substring(
+            imgDetails.name.indexOf(".") + 1,
+            imgDetails.name.length
+          ),
       };
     }
 
@@ -88,8 +126,10 @@ const Tweetbox = () => {
     const storageRef = storage.ref();
     const parentFolderRef = storageRef.child("Image/");
     const userFolderRef = parentFolderRef.child(`${"@" + uName}/`);
-    const fileRef = userFolderRef.child(`${"@" + uName + "_" + image.name}`);
-    await fileRef.put(image, metadata).then(function (snapshot) {
+    const fileRef = userFolderRef.child(
+      `${"@" + uName + "_" + imgDetails.name}`
+    );
+    await fileRef.put(imgDetails, metadata).then(function (snapshot) {
       console.log("File Uploaded");
     });
 
@@ -106,7 +146,7 @@ const Tweetbox = () => {
     });
 
     setTweetMessage("");
-    setImage("");
+    setFile(null);
   };
 
   return (
@@ -123,14 +163,8 @@ const Tweetbox = () => {
         </div>
 
         <div className="tweetbox__imgBox">
-          {result && (
-            <img
-              src={result}
-              ref={imageRef}
-              alt=""
-              className="save__img"
-              id="save__img"
-            />
+          {file && (
+            <img src={file} alt="" className="save__img" id="save__img" />
           )}
         </div>
         <div className="tweetbox__footer">

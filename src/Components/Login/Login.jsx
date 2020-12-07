@@ -55,22 +55,29 @@ function Login() {
               alt=""
             />
           </div>
-          <div className="login__text">
-            <h1 className="login__hello">Hello,</h1>
-            <div className="login__Ano__Container">
-              <h1 className="login__anonymous">Anonymous</h1>
+          <div className="login__textArea">
+            <div className="login__text">
+              <h1 className="login__hello">Hello,</h1>
+              <div className="login__Ano__Container">
+                <h1 className="login__anonymous">Anonymous</h1>
+              </div>
+              <h1 className="login__please">Lets be friendly,</h1>
+              <br />
+              <h1 className="login__please">Sign In to use the App</h1>
             </div>
-            <h1 className="login__please">Lets be friendly,</h1>
-            <br />
-            <h1 className="login__please">Sign In to use the App</h1>
             <div className="signIn__Button">
-              <Button variant="outlined" color="primary" onClick={GsignIn}>
+              <Button
+                variant="outlined"
+                className="signin__btn"
+                color="primary"
+                onClick={GsignIn}
+              >
                 <img
                   className="signIn__logo"
                   src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
                   alt=""
                 />
-                Sign In with Google
+                <p className="sign__btnText">Sign In with Google</p>
               </Button>
             </div>
           </div>

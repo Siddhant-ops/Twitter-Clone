@@ -45,14 +45,6 @@
     margin: 0px 10px;
 }
 
-.yes__display {
-    display: block;
-}
-
-.no__display {
-    display: none;
-}
-
 #fileuploadimg {
     display: none;
 }

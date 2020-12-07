@@ -37,7 +37,7 @@
 .login__circle {
     width: 12rem;
     height: 12rem;
-    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    background-image: linear-gradient(120deg, #b6a1fd 0%, #ffc16f 100%);
     position: absolute;
     border-radius: 50%;
     z-index: 1;
@@ -108,4 +108,101 @@
     width: 18px;
     height: 18px;
     padding-right: 10px;
+}
+
+@media screen and (max-width : 2561px) {
+    .login__card {
+        min-height: 70vh;
+        min-width: 45rem;
+        padding: 0rem 5rem;
+    }
+
+    .login__area {
+        min-height: 30vh;
+    }
+
+    .login__circle {
+        width: 20rem;
+        height: 20rem;
+        border-radius: 50%;
+    }
+
+    .login__textArea {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login__hello {
+        font-size: 7rem;
+    }
+
+    .login__Ano__Container {
+        width: fit-content;
+        padding-right: 50px;
+        font-size: 3rem;
+    }
+
+    .login__anonymous::before {
+        max-width: fit-content;
+    }
+
+    .login__please {
+        font-size: 3.3rem;
+    }
+
+    .signIn__Button {
+        margin-top: 50px;
+        height: 5em;
+        width: 15em;
+    }
+
+    .signin__btn {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .signIn__logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .sign__btnText {
+        font-size: 1.3em !important;
+        font-weight: 700;
+    }
+}
+
+@media screen and (max-width : 1025px) {
+    .login__card {
+        min-height: 70vh;
+        min-width: 13rem;
+        padding: 0rem 2.5rem;
+    }
+
+    .login__area {
+        min-height: 33vh;
+    }
+
+    .login__circle {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .login__hello {}
+
+    .login__Ano__Container {}
+
+    .login__anonymous::before {}
+
+    .login__please {}
+
+    .signIn__Button {}
+
+    .signin__btn {}
+
+    .signIn__logo {}
+
+    .sign__btnText {}
 }
